@@ -87,6 +87,7 @@
             this.btnSaveResult.TabIndex = 4;
             this.btnSaveResult.Text = "Save Result";
             this.btnSaveResult.UseVisualStyleBackColor = true;
+            this.btnSaveResult.Click += new System.EventHandler(this.btnSaveResult_Click);
             // 
             // btnClearOriginal
             // 

@@ -165,5 +165,21 @@
         {
             pbFinalImage.Image = null;
         }
+
+        private void btnSaveResult_Click(object sender, EventArgs e)
+        {
+            if (pbFinalImage.Image == null)
+                return;
+
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.RestoreDirectory = true;
+            saveFileDialog.FileName = System.IO.Path.GetFileNameWithoutExtension(openFileDialog.FileName);
+            saveFileDialog.Filter = "JPEG Image (.jpeg)|*.jpeg|Png Image (.png)|*.png";
+
+            if (saveFileDialog.ShowDialog() != DialogResult.OK)
+                return;
+
+            pbFinalImage.Image.Save(saveFileDialog.FileName);
+        }
     }
 }
