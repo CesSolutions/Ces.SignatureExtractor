@@ -77,6 +77,7 @@
             this.btnExtractSignatur.TabIndex = 3;
             this.btnExtractSignatur.Text = "Extract Signatur";
             this.btnExtractSignatur.UseVisualStyleBackColor = true;
+            this.btnExtractSignatur.Click += new System.EventHandler(this.btnExtractSignatur_Click);
             // 
             // btnSaveResult
             // 
@@ -105,6 +106,7 @@
             this.btnClearResult.TabIndex = 6;
             this.btnClearResult.Text = "Clear Result";
             this.btnClearResult.UseVisualStyleBackColor = true;
+            this.btnClearResult.Click += new System.EventHandler(this.btnClearResult_Click);
             // 
             // frmMain
             // 
