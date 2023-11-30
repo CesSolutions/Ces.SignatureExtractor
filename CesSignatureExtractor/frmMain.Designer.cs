@@ -121,6 +121,7 @@
             this.Controls.Add(this.btnLoadImage);
             this.Controls.Add(this.pbFinalImage);
             this.Controls.Add(this.pbOriginalImage);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Signature Extractor";
