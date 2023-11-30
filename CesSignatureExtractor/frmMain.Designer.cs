@@ -42,9 +42,9 @@
             // pbOriginalImage
             // 
             this.pbOriginalImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbOriginalImage.Location = new System.Drawing.Point(44, 24);
+            this.pbOriginalImage.Location = new System.Drawing.Point(12, 12);
             this.pbOriginalImage.Name = "pbOriginalImage";
-            this.pbOriginalImage.Size = new System.Drawing.Size(237, 284);
+            this.pbOriginalImage.Size = new System.Drawing.Size(400, 500);
             this.pbOriginalImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbOriginalImage.TabIndex = 0;
             this.pbOriginalImage.TabStop = false;
@@ -52,18 +52,18 @@
             // pbFinalImage
             // 
             this.pbFinalImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbFinalImage.Location = new System.Drawing.Point(287, 24);
+            this.pbFinalImage.Location = new System.Drawing.Point(418, 12);
             this.pbFinalImage.Name = "pbFinalImage";
-            this.pbFinalImage.Size = new System.Drawing.Size(277, 284);
+            this.pbFinalImage.Size = new System.Drawing.Size(400, 500);
             this.pbFinalImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbFinalImage.TabIndex = 1;
             this.pbFinalImage.TabStop = false;
             // 
             // btnLoadImage
             // 
-            this.btnLoadImage.Location = new System.Drawing.Point(44, 314);
+            this.btnLoadImage.Location = new System.Drawing.Point(12, 518);
             this.btnLoadImage.Name = "btnLoadImage";
-            this.btnLoadImage.Size = new System.Drawing.Size(237, 23);
+            this.btnLoadImage.Size = new System.Drawing.Size(400, 40);
             this.btnLoadImage.TabIndex = 2;
             this.btnLoadImage.Text = "Load Image";
             this.btnLoadImage.UseVisualStyleBackColor = true;
@@ -71,27 +71,27 @@
             // 
             // btnExtractSignatur
             // 
-            this.btnExtractSignatur.Location = new System.Drawing.Point(287, 314);
+            this.btnExtractSignatur.Location = new System.Drawing.Point(418, 518);
             this.btnExtractSignatur.Name = "btnExtractSignatur";
-            this.btnExtractSignatur.Size = new System.Drawing.Size(277, 23);
+            this.btnExtractSignatur.Size = new System.Drawing.Size(400, 40);
             this.btnExtractSignatur.TabIndex = 3;
             this.btnExtractSignatur.Text = "Extract Signatur";
             this.btnExtractSignatur.UseVisualStyleBackColor = true;
             // 
             // btnSaveResult
             // 
-            this.btnSaveResult.Location = new System.Drawing.Point(287, 372);
+            this.btnSaveResult.Location = new System.Drawing.Point(418, 610);
             this.btnSaveResult.Name = "btnSaveResult";
-            this.btnSaveResult.Size = new System.Drawing.Size(277, 23);
+            this.btnSaveResult.Size = new System.Drawing.Size(400, 40);
             this.btnSaveResult.TabIndex = 4;
             this.btnSaveResult.Text = "Save Result";
             this.btnSaveResult.UseVisualStyleBackColor = true;
             // 
             // btnClearOriginal
             // 
-            this.btnClearOriginal.Location = new System.Drawing.Point(44, 343);
+            this.btnClearOriginal.Location = new System.Drawing.Point(12, 564);
             this.btnClearOriginal.Name = "btnClearOriginal";
-            this.btnClearOriginal.Size = new System.Drawing.Size(237, 23);
+            this.btnClearOriginal.Size = new System.Drawing.Size(400, 40);
             this.btnClearOriginal.TabIndex = 5;
             this.btnClearOriginal.Text = "Clear Original";
             this.btnClearOriginal.UseVisualStyleBackColor = true;
@@ -99,9 +99,9 @@
             // 
             // btnClearResult
             // 
-            this.btnClearResult.Location = new System.Drawing.Point(287, 343);
+            this.btnClearResult.Location = new System.Drawing.Point(418, 564);
             this.btnClearResult.Name = "btnClearResult";
-            this.btnClearResult.Size = new System.Drawing.Size(277, 23);
+            this.btnClearResult.Size = new System.Drawing.Size(400, 40);
             this.btnClearResult.TabIndex = 6;
             this.btnClearResult.Text = "Clear Result";
             this.btnClearResult.UseVisualStyleBackColor = true;
@@ -110,7 +110,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(900, 638);
+            this.ClientSize = new System.Drawing.Size(828, 659);
             this.Controls.Add(this.btnClearResult);
             this.Controls.Add(this.btnClearOriginal);
             this.Controls.Add(this.btnSaveResult);
