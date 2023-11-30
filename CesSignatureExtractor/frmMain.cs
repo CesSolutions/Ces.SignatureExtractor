@@ -32,10 +32,10 @@
         private void btnExtractSignatur_Click(object sender, EventArgs e)
         {
             // ایجاد تصویر جدید براساس فایل انتخاب شده توسط کاربر
-            var imgOriginal = new Bitmap(Image.FromFile(openFileDialog.FileName));
+            using var imgOriginal = new Bitmap(Image.FromFile(openFileDialog.FileName));
 
             // ایجاد تصویر نهایی که قرار است نتیجه در آن ترسیم شود
-            var imgSignature = new Bitmap(imgOriginal.Width, imgOriginal.Height);
+            using var imgSignature = new Bitmap(imgOriginal.Width, imgOriginal.Height);
 
             // بدلیل آنکه استخراج تصویر با بررسی رنگ پیکسل های تصویر انجام می شود
             // بنابراین یک متغیر جهت نگهداری رنگ هر پیکسل تعریف میکنیم
@@ -143,13 +143,12 @@
 
             // ایجاد تصویر جدید جهت رسم امضای نهایی
             // ابعاد تصویر با توجه به موقعیت های بدست آمده در حلقه ها تعیین خواهد شد
-            var imgResultBoundry =
-                new Bitmap(
-                    imgRightPoint - imgLeftPoint,
-                    imgBottomPoint - imgTopPoint);
+            using var imgResultBoundry = new Bitmap(
+                imgRightPoint - imgLeftPoint,
+                imgBottomPoint - imgTopPoint);
 
             // ایجاد گرافیک جدید جهت رسم امضا
-            Graphics gBoundry = Graphics.FromImage(imgResultBoundry);
+            using Graphics gBoundry = Graphics.FromImage(imgResultBoundry);
 
             gBoundry.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             gBoundry.DrawImage(
@@ -171,7 +170,7 @@
             if (pbFinalImage.Image == null)
                 return;
 
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            using SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.RestoreDirectory = true;
             saveFileDialog.FileName = System.IO.Path.GetFileNameWithoutExtension(openFileDialog.FileName);
             saveFileDialog.Filter = "JPEG Image (.jpeg)|*.jpeg|Png Image (.png)|*.png";
