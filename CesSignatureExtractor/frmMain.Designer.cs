@@ -113,7 +113,7 @@
             // 
             // btnResultColor
             // 
-            this.btnResultColor.BackColor = System.Drawing.Color.White;
+            this.btnResultColor.BackColor = System.Drawing.Color.Green;
             this.btnResultColor.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnResultColor.Enabled = false;
             this.btnResultColor.FlatAppearance.BorderSize = 0;
