@@ -35,6 +35,8 @@
             this.btnSaveResult = new System.Windows.Forms.Button();
             this.btnClearOriginal = new System.Windows.Forms.Button();
             this.btnClearResult = new System.Windows.Forms.Button();
+            this.btnResultColor = new System.Windows.Forms.Button();
+            this.chkUseOriginalColor = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbOriginalImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbFinalImage)).BeginInit();
             this.SuspendLayout();
@@ -109,11 +111,40 @@
             this.btnClearResult.UseVisualStyleBackColor = true;
             this.btnClearResult.Click += new System.EventHandler(this.btnClearResult_Click);
             // 
+            // btnResultColor
+            // 
+            this.btnResultColor.BackColor = System.Drawing.Color.White;
+            this.btnResultColor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnResultColor.Enabled = false;
+            this.btnResultColor.FlatAppearance.BorderSize = 0;
+            this.btnResultColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnResultColor.Location = new System.Drawing.Point(423, 477);
+            this.btnResultColor.Name = "btnResultColor";
+            this.btnResultColor.Size = new System.Drawing.Size(30, 30);
+            this.btnResultColor.TabIndex = 7;
+            this.btnResultColor.UseVisualStyleBackColor = false;
+            this.btnResultColor.Click += new System.EventHandler(this.btnResultColor_Click);
+            // 
+            // chkUseOriginalColor
+            // 
+            this.chkUseOriginalColor.AutoSize = true;
+            this.chkUseOriginalColor.Checked = true;
+            this.chkUseOriginalColor.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkUseOriginalColor.Location = new System.Drawing.Point(459, 484);
+            this.chkUseOriginalColor.Name = "chkUseOriginalColor";
+            this.chkUseOriginalColor.Size = new System.Drawing.Size(122, 19);
+            this.chkUseOriginalColor.TabIndex = 8;
+            this.chkUseOriginalColor.Text = "Use Original Color";
+            this.chkUseOriginalColor.UseVisualStyleBackColor = true;
+            this.chkUseOriginalColor.CheckedChanged += new System.EventHandler(this.chkUseOriginalColor_CheckedChanged);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(828, 659);
+            this.ClientSize = new System.Drawing.Size(828, 661);
+            this.Controls.Add(this.chkUseOriginalColor);
+            this.Controls.Add(this.btnResultColor);
             this.Controls.Add(this.btnClearResult);
             this.Controls.Add(this.btnClearOriginal);
             this.Controls.Add(this.btnSaveResult);
@@ -128,6 +159,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbOriginalImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbFinalImage)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -140,5 +172,7 @@
         private Button btnSaveResult;
         private Button btnClearOriginal;
         private Button btnClearResult;
+        private Button btnResultColor;
+        private CheckBox chkUseOriginalColor;
     }
 }

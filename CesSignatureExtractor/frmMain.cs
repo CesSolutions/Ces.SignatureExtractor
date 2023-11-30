@@ -52,7 +52,7 @@
                     // بنابراین هر رنگی به غیر از سفید به عنوان داده های امضا محسوب خواهد
                     // شد و برنامه آن را به عنوان امضا از زمینه سفید جدا خواهد کرد                
                     if (currentPixelColor.R >= 0 & currentPixelColor.R <= 200)
-                        imgSignature.SetPixel(x, y, currentPixelColor);
+                        imgSignature.SetPixel(x, y, chkUseOriginalColor.Checked ? currentPixelColor : btnResultColor.BackColor);
                 }
             }
 
@@ -179,6 +179,21 @@
                 return;
 
             pbFinalImage.Image.Save(saveFileDialog.FileName);
+        }
+
+        private void btnResultColor_Click(object sender, EventArgs e)
+        {
+            ColorDialog colorDialog = new ColorDialog();
+
+            if (colorDialog.ShowDialog() != DialogResult.OK)
+                return;
+
+            btnResultColor.BackColor = colorDialog.Color;
+        }
+
+        private void chkUseOriginalColor_CheckedChanged(object sender, EventArgs e)
+        {
+            btnResultColor.Enabled = !chkUseOriginalColor.Checked;
         }
     }
 }
