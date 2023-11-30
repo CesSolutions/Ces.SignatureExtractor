@@ -31,9 +31,6 @@
 
         private void btnExtractSignatur_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Stopwatch sw = new System.Diagnostics.Stopwatch();
-            sw.Start();
-                
             // ایجاد تصویر جدید براساس فایل انتخاب شده توسط کاربر
             var imgOriginal = new Bitmap(Image.FromFile(openFileDialog.FileName));
 
@@ -61,84 +58,107 @@
 
             // حالا که امضا بدست آمد باید حاشیه های اضافه را حذف کرد و بنابراین
             // باید مرز امضا پیدا شود و مجددا امضای بدست آمده در ابعاد مورد نظر
-            // رسم شود
-            var imgTopPoint = default(int);
-            var imgBottomPoint = default(int);
-            var imgLeftPoint = default(int);
-            var imgRightPoint = default(int);
+            // رسم شود           
+            var imgTopPoint = 0;
+            var imgBottomPoint = 0;
+            var imgLeftPoint = 0;
+            var imgRightPoint = 0;
 
-            for (int y = 0 ; y <= imgSignature.Height - 1; y++)
+            // مقدار متغیر جهت خروج از حلقه استفاده خواهد شد
+            bool pointFound = false;
+
+            for (int y = 0; y <= imgSignature.Height - 1; y++)
             {
                 for (int x = 0; x <= imgSignature.Width - 1; x++)
                 {
                     // اگر رنگ تشخیص داده شود پس مرز بالایی امضا می باشد
                     if (imgSignature.GetPixel(x, y).ToString() != "Color [A=0, R=0, G=0, B=0]")
                     {
-                        // imgTopPoint = y
-                        // اعداد برعکس بدست می ایند!!!!!!!
-                        imgBottomPoint = y;
-                        //break;
+                        imgTopPoint = y;
+                        pointFound = true;
+                        break;
                     }
                 }
+
+                if (pointFound)
+                    break;
             }
+
+            pointFound = false;
 
             for (int y = imgSignature.Height - 1; y >= 0; y -= 1)
             {
-                for (int x = 0, loopTo4 = imgSignature.Width - 1; x <= loopTo4; x++)
+                for (int x = 0; x <= imgSignature.Width - 1; x++)
                 {
                     // اگر رنگ تشخیص داده شود پس مرز پایینی امضا می باشد
                     if (imgSignature.GetPixel(x, y).ToString() != "Color [A=0, R=0, G=0, B=0]")
                     {
-                        // imgBottomPoint = y
-                        imgTopPoint = y;                 
+                        imgBottomPoint = y;
+                        pointFound = true;
+                        break;
                     }
                 }
+
+                if (pointFound)
+                    break;
             }
 
-            for (int x = 0, loopTo5 = imgSignature.Width - 1; x <= loopTo5; x++)
+            pointFound = false;
+
+            for (int x = 0; x <= imgSignature.Width - 1; x++)
             {
-                for (int y = 0, loopTo6 = imgSignature.Height - 1; y <= loopTo6; y++)
+                for (int y = 0; y <= imgSignature.Height - 1; y++)
                 {
                     // اگر رنگ تشخیص داده شود پس مرز چپ امضا می باشد
                     if (imgSignature.GetPixel(x, y).ToString() != "Color [A=0, R=0, G=0, B=0]")
                     {
-                        // imgLeftPoint = x
-                        imgRightPoint = x;
+                        imgLeftPoint = x;
+                        pointFound = true;
+                        break;
                     }
                 }
+
+                if (pointFound)
+                    break;
             }
+
+            pointFound = false;
 
             for (int x = imgSignature.Width - 1; x >= 0; x -= 1)
             {
-                for (int y = 0, loopTo7 = imgSignature.Height - 1; y <= loopTo7; y++)
+                for (int y = 0; y <= imgSignature.Height - 1; y++)
                 {
                     // اگر رنگ تشخیص داده شود پس مرز راست امضا می باشد
                     if (imgSignature.GetPixel(x, y).ToString() != "Color [A=0, R=0, G=0, B=0]")
                     {
-                        // imgRightPoint = x
-                        imgLeftPoint = x;
+                        imgRightPoint = x;
+                        pointFound = true;
+                        break;
                     }
                 }
+
+                if (pointFound)
+                    break;
             }
 
-            var imgBoundry =
+            // ایجاد تصویر جدید جهت رسم امضای نهایی
+            // ابعاد تصویر با توجه به موقعیت های بدست آمده در حلقه ها تعیین خواهد شد
+            var imgResultBoundry =
                 new Bitmap(
-                    Math.Abs(imgLeftPoint - imgRightPoint),
-                    Math.Abs(imgTopPoint - imgBottomPoint));
+                    imgRightPoint - imgLeftPoint,
+                    imgBottomPoint - imgTopPoint);
 
-            Graphics gBoundry = Graphics.FromImage(imgBoundry);
+            // ایجاد گرافیک جدید جهت رسم امضا
+            Graphics gBoundry = Graphics.FromImage(imgResultBoundry);
 
             gBoundry.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             gBoundry.DrawImage(
                 imgSignature,
-                new Rectangle(0, 0, imgBoundry.Width, imgBoundry.Height),
-                new Rectangle(imgLeftPoint, imgTopPoint, imgBoundry.Width, imgBoundry.Height),
+                new Rectangle(0, 0, imgResultBoundry.Width, imgResultBoundry.Height),
+                new Rectangle(imgLeftPoint, imgTopPoint, imgResultBoundry.Width, imgResultBoundry.Height),
                 GraphicsUnit.Pixel);
 
-            this.pbFinalImage.Image = imgBoundry;
-
-            sw.Stop();
-            this.Text = sw.ElapsedMilliseconds.ToString();
+            this.pbFinalImage.Image = imgResultBoundry;
         }
 
         private void btnClearResult_Click(object sender, EventArgs e)
