@@ -31,7 +31,7 @@
             this.pbOriginalImage = new System.Windows.Forms.PictureBox();
             this.pbFinalImage = new System.Windows.Forms.PictureBox();
             this.btnLoadImage = new System.Windows.Forms.Button();
-            this.btnExtractSignatur = new System.Windows.Forms.Button();
+            this.btnExtractSignature = new System.Windows.Forms.Button();
             this.btnSaveResult = new System.Windows.Forms.Button();
             this.btnClearOriginal = new System.Windows.Forms.Button();
             this.btnClearResult = new System.Windows.Forms.Button();
@@ -69,15 +69,15 @@
             this.btnLoadImage.UseVisualStyleBackColor = true;
             this.btnLoadImage.Click += new System.EventHandler(this.btnLoadImage_Click);
             // 
-            // btnExtractSignatur
+            // btnExtractSignature
             // 
-            this.btnExtractSignatur.Location = new System.Drawing.Point(418, 518);
-            this.btnExtractSignatur.Name = "btnExtractSignatur";
-            this.btnExtractSignatur.Size = new System.Drawing.Size(400, 40);
-            this.btnExtractSignatur.TabIndex = 3;
-            this.btnExtractSignatur.Text = "Extract Signatur";
-            this.btnExtractSignatur.UseVisualStyleBackColor = true;
-            this.btnExtractSignatur.Click += new System.EventHandler(this.btnExtractSignatur_Click);
+            this.btnExtractSignature.Location = new System.Drawing.Point(418, 518);
+            this.btnExtractSignature.Name = "btnExtractSignature";
+            this.btnExtractSignature.Size = new System.Drawing.Size(400, 40);
+            this.btnExtractSignature.TabIndex = 3;
+            this.btnExtractSignature.Text = "Extract Signature";
+            this.btnExtractSignature.UseVisualStyleBackColor = true;
+            this.btnExtractSignature.Click += new System.EventHandler(this.btnExtractSignatur_Click);
             // 
             // btnSaveResult
             // 
@@ -117,7 +117,7 @@
             this.Controls.Add(this.btnClearResult);
             this.Controls.Add(this.btnClearOriginal);
             this.Controls.Add(this.btnSaveResult);
-            this.Controls.Add(this.btnExtractSignatur);
+            this.Controls.Add(this.btnExtractSignature);
             this.Controls.Add(this.btnLoadImage);
             this.Controls.Add(this.pbFinalImage);
             this.Controls.Add(this.pbOriginalImage);
@@ -136,7 +136,7 @@
         private PictureBox pbOriginalImage;
         private PictureBox pbFinalImage;
         private Button btnLoadImage;
-        private Button btnExtractSignatur;
+        private Button btnExtractSignature;
         private Button btnSaveResult;
         private Button btnClearOriginal;
         private Button btnClearResult;

@@ -59,10 +59,10 @@
             // حالا که امضا بدست آمد باید حاشیه های اضافه را حذف کرد و بنابراین
             // باید مرز امضا پیدا شود و مجددا امضای بدست آمده در ابعاد مورد نظر
             // رسم شود           
-            var imgTopPoint = 0;
-            var imgBottomPoint = 0;
-            var imgLeftPoint = 0;
-            var imgRightPoint = 0;
+            var imgTopBoundry = 0;
+            var imgBottomBoundry = 0;
+            var imgLeftBoundry = 0;
+            var imgRightBoundry = 0;
 
             // مقدار متغیر جهت خروج از حلقه استفاده خواهد شد
             bool pointFound = false;
@@ -74,7 +74,7 @@
                     // اگر رنگ تشخیص داده شود پس مرز بالایی امضا می باشد
                     if (imgSignature.GetPixel(x, y).ToString() != "Color [A=0, R=0, G=0, B=0]")
                     {
-                        imgTopPoint = y;
+                        imgTopBoundry = y;
                         pointFound = true;
                         break;
                     }
@@ -93,7 +93,7 @@
                     // اگر رنگ تشخیص داده شود پس مرز پایینی امضا می باشد
                     if (imgSignature.GetPixel(x, y).ToString() != "Color [A=0, R=0, G=0, B=0]")
                     {
-                        imgBottomPoint = y;
+                        imgBottomBoundry = y;
                         pointFound = true;
                         break;
                     }
@@ -112,7 +112,7 @@
                     // اگر رنگ تشخیص داده شود پس مرز چپ امضا می باشد
                     if (imgSignature.GetPixel(x, y).ToString() != "Color [A=0, R=0, G=0, B=0]")
                     {
-                        imgLeftPoint = x;
+                        imgLeftBoundry = x;
                         pointFound = true;
                         break;
                     }
@@ -131,7 +131,7 @@
                     // اگر رنگ تشخیص داده شود پس مرز راست امضا می باشد
                     if (imgSignature.GetPixel(x, y).ToString() != "Color [A=0, R=0, G=0, B=0]")
                     {
-                        imgRightPoint = x;
+                        imgRightBoundry = x;
                         pointFound = true;
                         break;
                     }
@@ -144,8 +144,8 @@
             // ایجاد تصویر جدید جهت رسم امضای نهایی
             // ابعاد تصویر با توجه به موقعیت های بدست آمده در حلقه ها تعیین خواهد شد
             var imgResultBoundry = new Bitmap(
-                imgRightPoint - imgLeftPoint,
-                imgBottomPoint - imgTopPoint);
+                imgRightBoundry - imgLeftBoundry,
+                imgBottomBoundry - imgTopBoundry);
 
             // ایجاد گرافیک جدید جهت رسم امضا
             using Graphics gBoundry = Graphics.FromImage(imgResultBoundry);
@@ -154,7 +154,7 @@
             gBoundry.DrawImage(
                 imgSignature,
                 new Rectangle(0, 0, imgResultBoundry.Width, imgResultBoundry.Height),
-                new Rectangle(imgLeftPoint, imgTopPoint, imgResultBoundry.Width, imgResultBoundry.Height),
+                new Rectangle(imgLeftBoundry, imgTopBoundry, imgResultBoundry.Width, imgResultBoundry.Height),
                 GraphicsUnit.Pixel);
 
             this.pbFinalImage.Image = imgResultBoundry;
