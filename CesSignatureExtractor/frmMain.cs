@@ -32,10 +32,10 @@
         private void btnExtractSignatur_Click(object sender, EventArgs e)
         {
             // ایجاد تصویر جدید براساس فایل انتخاب شده توسط کاربر
-            using var imgOriginal = new Bitmap(Image.FromFile(openFileDialog.FileName));
+            var imgOriginal = new Bitmap(Image.FromFile(openFileDialog.FileName));
 
             // ایجاد تصویر نهایی که قرار است نتیجه در آن ترسیم شود
-            using var imgSignature = new Bitmap(imgOriginal.Width, imgOriginal.Height);
+            var imgSignature = new Bitmap(imgOriginal.Width, imgOriginal.Height);
 
             // بدلیل آنکه استخراج تصویر با بررسی رنگ پیکسل های تصویر انجام می شود
             // بنابراین یک متغیر جهت نگهداری رنگ هر پیکسل تعریف میکنیم
@@ -143,7 +143,7 @@
 
             // ایجاد تصویر جدید جهت رسم امضای نهایی
             // ابعاد تصویر با توجه به موقعیت های بدست آمده در حلقه ها تعیین خواهد شد
-            using var imgResultBoundry = new Bitmap(
+            var imgResultBoundry = new Bitmap(
                 imgRightPoint - imgLeftPoint,
                 imgBottomPoint - imgTopPoint);
 
@@ -173,7 +173,7 @@
             using SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.RestoreDirectory = true;
             saveFileDialog.FileName = System.IO.Path.GetFileNameWithoutExtension(openFileDialog.FileName);
-            saveFileDialog.Filter = "JPEG Image (.jpeg)|*.jpeg|Png Image (.png)|*.png";
+            saveFileDialog.Filter = "Png Image (.png)|*.png|JPEG Image (.jpeg)|*.jpeg";
 
             if (saveFileDialog.ShowDialog() != DialogResult.OK)
                 return;
