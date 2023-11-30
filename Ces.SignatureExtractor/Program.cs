@@ -1,4 +1,4 @@
-namespace CesSignatureExtractor
+namespace Ces.SignatureExtractor
 {
     internal static class Program
     {

@@ -1,4 +1,4 @@
-﻿namespace CesSignatureExtractor
+﻿namespace Ces.SignatureExtractor
 {
     partial class frmMain
     {

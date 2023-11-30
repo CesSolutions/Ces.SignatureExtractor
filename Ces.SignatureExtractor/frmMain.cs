@@ -1,4 +1,4 @@
-﻿namespace CesSignatureExtractor
+﻿namespace Ces.SignatureExtractor
 {
     public partial class frmMain : Form
     {
