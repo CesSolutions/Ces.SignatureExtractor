@@ -1,16 +1,18 @@
 # Ces.SignatureExtractor
 
+<div dir="ltr">
+  <p>
+    This application is used to extract signature from paper then create new image without background and extra margin to use on reports and other documents. Using of this application while decrease image size significantly, you change color of signature as well.
+  </p>
+</div>
+
 <div dir="rtl">
   <p>
     برنامه استخراج امضا جهت جداسازی اثر امضا از روی کاغذ و ایجاد یک تصویر جدید از امضا بدون پس زمینه و حاشیه های اضافه به منظور الصاق امضای کاربر در گزارشات و سایر مستندات. استفاده از این روش ضمن کاهش حجم قابل توجهی از تصویر، امکان تغییر رنگ امضا را نیز فراهم میکند.
   </p>
 </div>
 
-<div dir="ltr">
-  <p>
-    This application is used to extract signature from paper then create new image without background and extra margin to use on reports and other documents. Using of this application while decrease image size significantly, you change color of signature as well.
-  </p>
-</div>
+
 
   <div align="center">
     <img src="https://github.com/CesSolutions/CesSignatureExtractor/assets/74654532/7f48e1da-59e7-4525-b6f7-57acdc98f167">
