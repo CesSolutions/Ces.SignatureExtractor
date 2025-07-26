@@ -11,7 +11,7 @@
     برنامه استخراج امضا جهت جداسازی اثر امضا از روی کاغذ و ایجاد یک تصویر جدید از امضا بدون پس زمینه و حاشیه های اضافه به منظور الصاق امضای کاربر در گزارشات و سایر مستندات. استفاده از این روش ضمن کاهش حجم قابل توجهی از تصویر، امکان تغییر رنگ امضا را نیز فراهم میکند.
   </p>
 
-<a href="https://www.nuget.org/packages/Ces.SignatureExtractor/">Ces.SignatureExtractor Nuget Package</a>
+<p> Nuget Package: <a href="https://www.nuget.org/packages/Ces.SignatureExtractor/">Ces.SignatureExtractor</a></p>
   
 </div>
 
