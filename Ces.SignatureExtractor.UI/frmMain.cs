@@ -29,16 +29,16 @@
             pbOriginalImage.Image = null;
         }
 
-        private void btnExtractSignatur_Click(object sender, EventArgs e)
-        {
-            var extractor = new Ces.SignatureExtractor.Extractor();
+private void btnExtractSignatur_Click(object sender, EventArgs e)
+{
+var extractor = new Ces.SignatureExtractor.Extractor();
 
-            this.pbFinalImage.Image = extractor.Extract(
-                _openFileDialog.FileName
-                , chkUseOriginalColor.Checked
-                , btnCustomColor.BackColor
-                , (byte)tbBackgroundPrecision.Value);
-        }
+this.pbFinalImage.Image = extractor.Extract(
+    _openFileDialog.FileName
+    , chkUseOriginalColor.Checked
+    , btnCustomColor.BackColor
+    , (byte)tbBackgroundPrecision.Value);
+}
 
         private void btnClearResult_Click(object sender, EventArgs e)
         {

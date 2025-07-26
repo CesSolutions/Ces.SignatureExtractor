@@ -12,14 +12,14 @@
         /// <param name="imagePath"></param>
         /// <param name="useOriginalColor"></param>
         /// <param name="customColor"></param>
-        /// <param name="backgroundPrecision">اگر پس زمینه تصویر کدر بود این مقدار را کاهش دهید</param>
+        /// <param name="precision">اگر پس زمینه تصویر کدر بود این مقدار را کاهش دهید</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         public System.Drawing.Bitmap Extract(
             string imagePath, 
             bool useOriginalColor = true, 
             System.Drawing.Color? customColor = null, 
-            byte backgroundPrecision = 200)
+            byte precision = 200)
         {
             if (useOriginalColor && !customColor.HasValue)
                 throw new ArgumentNullException(nameof(customColor));
@@ -52,7 +52,7 @@
                     // بنابراین با توجه به اینکه نمونه امضا روی کاغذ سفید انجام خواهد شد
                     // بنابراین هر رنگی به غیر از سفید به عنوان داده‌های امضا محسوب خواهد
                     // شد و برنامه آن را به عنوان امضا از زمینه سفید جدا خواهد کرد
-                    if (currentPixelColor.R >= 0 & currentPixelColor.R <= backgroundPrecision)
+                    if (currentPixelColor.R >= 0 & currentPixelColor.R <= precision)
                         imgSignature.SetPixel(x, y,
                             useOriginalColor ?
                             System.Drawing.Color.FromArgb(alpha, currentPixelColor) :
