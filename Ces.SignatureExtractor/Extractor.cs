@@ -7,7 +7,7 @@
         }
 
         /// <summary>
-        /// استخراج خط امضا از تصویر اسکن شده
+        /// استخراج خط امضا از تصویر اسکن شده. امضای اسکن شده نباید قرمز باشد
         /// </summary>
         /// <param name="imagePath"></param>
         /// <param name="useOriginalColor"></param>
