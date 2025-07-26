@@ -8,20 +8,20 @@
         }
 
 
-        private OpenFileDialog openFileDialog = new OpenFileDialog();
-
+        private OpenFileDialog _openFileDialog = new OpenFileDialog();
+        private Color _customeColor;
 
         private void btnLoadImage_Click(object sender, EventArgs e)
         {
-            openFileDialog.Multiselect = false;
-            openFileDialog.RestoreDirectory = true;
-            openFileDialog.Filter = "Image File|*.JPG;*.PNG";
+            _openFileDialog.Multiselect = false;
+            _openFileDialog.RestoreDirectory = true;
+            _openFileDialog.Filter = "Image File|*.JPG;*.PNG";
 
-            if (openFileDialog.ShowDialog() != DialogResult.OK)
+            if (_openFileDialog.ShowDialog() != DialogResult.OK)
                 return;
 
             pbOriginalImage.Image = null;
-            pbOriginalImage.Image = Image.FromFile(openFileDialog.FileName);
+            pbOriginalImage.Image = Image.FromFile(_openFileDialog.FileName);
         }
 
         private void btnClearOriginal_Click(object sender, EventArgs e)
@@ -34,9 +34,9 @@
             var extractor = new Ces.SignatureExtractor.Extractor();
 
             this.pbFinalImage.Image = extractor.Extract(
-                openFileDialog.FileName
-                , false
-                , Color.Red);
+                _openFileDialog.FileName
+                , chkUseOriginalColor.Checked
+                , btnCustomColor.BackColor);
         }
 
         private void btnClearResult_Click(object sender, EventArgs e)
@@ -51,7 +51,7 @@
 
             using SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.RestoreDirectory = true;
-            saveFileDialog.FileName = System.IO.Path.GetFileNameWithoutExtension(openFileDialog.FileName);
+            saveFileDialog.FileName = System.IO.Path.GetFileNameWithoutExtension(_openFileDialog.FileName);
             saveFileDialog.Filter = "Png Image (.png)|*.png|JPEG Image (.jpeg)|*.jpeg";
 
             if (saveFileDialog.ShowDialog() != DialogResult.OK)
@@ -60,19 +60,20 @@
             pbFinalImage.Image.Save(saveFileDialog.FileName);
         }
 
-        private void btnResultColor_Click(object sender, EventArgs e)
+        private void btnCustomColor_Click(object sender, EventArgs e)
         {
             ColorDialog colorDialog = new ColorDialog();
 
             if (colorDialog.ShowDialog() != DialogResult.OK)
                 return;
 
-            btnResultColor.BackColor = colorDialog.Color;
+            _customeColor = colorDialog.Color;
+            btnCustomColor.BackColor = _customeColor;
         }
 
         private void chkUseOriginalColor_CheckedChanged(object sender, EventArgs e)
         {
-            btnResultColor.Enabled = !chkUseOriginalColor.Checked;
+            btnCustomColor.Enabled = !chkUseOriginalColor.Checked;
         }
     }
 }

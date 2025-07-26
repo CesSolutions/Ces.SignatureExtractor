@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Ces.SignatureExtractor\Ces.SignatureExtractor.csproj" />
+    <PackageReference Include="Ces.SignatureExtractor" Version="1.0.0" />
   </ItemGroup>
 
 </Project>

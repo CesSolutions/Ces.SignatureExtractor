@@ -4,7 +4,20 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+	<Version>1.0.0</Version>
+	<PackageIcon>CES.png</PackageIcon>
+	<RepositoryUrl>https://github.com/CesSolutions/Ces.SignatureExtractor</RepositoryUrl>
+	<Description>Extract signature from scanned image</Description>
+	<Authors>Hadi.Mazareei</Authors>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\CES\Arm\CES.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="System.Drawing.Common" Version="8.0.18" />
