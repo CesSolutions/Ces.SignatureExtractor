@@ -18,3 +18,19 @@
   <div align="center">
     <img src="https://github.com/user-attachments/assets/706e31a4-4a6d-4416-bce9-a670ad6ff5d5">
   </div>
+
+<div dir="ltr">
+  <p>
+    اگر پس‌زمینه تصویر اسکن شده کدر بود و بعد از پردازش تصویر تمام پس‌زمینه حذف نشد، می‌بایست مقدار BackgroundPrecision را کاهش دهید.
+  </p>
+</div>
+
+```csharp
+var extractor = new Ces.SignatureExtractor.Extractor();
+
+this.pbFinalImage.Image = extractor.Extract(
+    _openFileDialog.FileName
+    , chkUseOriginalColor.Checked
+    , btnCustomColor.BackColor
+    , (byte)tbBackgroundPrecision.Value);
+```
