@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ces.SignatureExtractor", "Ces.SignatureExtractor\Ces.SignatureExtractor.csproj", "{16CA38F9-3EFF-4D68-998E-097D0EED7052}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ces.SignatureExtractor.UI", "Ces.SignatureExtractor.UI\Ces.SignatureExtractor.UI.csproj", "{16CA38F9-3EFF-4D68-998E-097D0EED7052}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ces.SignatureExtractor", "Ces.SignatureExtractor\Ces.SignatureExtractor.csproj", "{6DCFC33D-3B6A-4D77-A8D4-B085D4707C59}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{16CA38F9-3EFF-4D68-998E-097D0EED7052}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{16CA38F9-3EFF-4D68-998E-097D0EED7052}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{16CA38F9-3EFF-4D68-998E-097D0EED7052}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DCFC33D-3B6A-4D77-A8D4-B085D4707C59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DCFC33D-3B6A-4D77-A8D4-B085D4707C59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DCFC33D-3B6A-4D77-A8D4-B085D4707C59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DCFC33D-3B6A-4D77-A8D4-B085D4707C59}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
