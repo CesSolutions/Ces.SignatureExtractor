@@ -36,7 +36,8 @@
             this.pbFinalImage.Image = extractor.Extract(
                 _openFileDialog.FileName
                 , chkUseOriginalColor.Checked
-                , btnCustomColor.BackColor);
+                , btnCustomColor.BackColor
+                , (byte)tbBackgroundPrecision.Value);
         }
 
         private void btnClearResult_Click(object sender, EventArgs e)
@@ -73,7 +74,12 @@
 
         private void chkUseOriginalColor_CheckedChanged(object sender, EventArgs e)
         {
-            btnCustomColor.Enabled = !chkUseOriginalColor.Checked;
+            btnCustomColor.Visible = !chkUseOriginalColor.Checked;
+        }
+
+        private void tbBackgroundPrecision_Scroll(object sender, EventArgs e)
+        {
+            lblBackgroundPrecision.Text = $"Precision: {tbBackgroundPrecision.Value}";
         }
     }
 }
