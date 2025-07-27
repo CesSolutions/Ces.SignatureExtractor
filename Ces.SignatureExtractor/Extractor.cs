@@ -44,7 +44,6 @@
                     //اگر این متغیر بدست نیاید تمام امضا تک رنگ و با یک شدت خواهد بود که
                     //زیبایی امضا از بین خواهد رفت. بنابراین در زمان جایگزینی رنگ جدید
                     //باید شدت رنگ قبلی به رنگ جدید اعمال شود
-                    //float brightness = (currentPixelColor.R + currentPixelColor.G + currentPixelColor.B) / 3f / 255f;
                     float brightness = currentPixelColor.GetBrightness();
                     byte alpha = (byte)(255 * (1.0f - brightness));
 
