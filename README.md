@@ -1,4 +1,4 @@
-# Ces.SignatureExtractor
+# Ces.SignatureExtractor + UI
 
 <div dir="ltr">
   <p>
@@ -21,7 +21,7 @@
 
 <div dir="ltr">
   <p>
-    اگر پس‌زمینه تصویر اسکن شده کدر بود و بعد از پردازش تصویر تمام پس‌زمینه حذف نشد، می‌بایست مقدار BackgroundPrecision را کاهش دهید.
+    اگر پس‌زمینه تصویر اسکن شده کدر (Opaque) بود و بعد از پردازش تصویر تمام پس‌زمینه حذف نشد، می‌بایست مقدار Precision را کاهش دهید.
   </p>
 </div>
 
