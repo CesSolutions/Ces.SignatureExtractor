@@ -34,3 +34,7 @@ this.pbFinalImage.Image = extractor.Extract(
     , btnCustomColor.BackColor
     , (byte)tbBackgroundPrecision.Value);
 ```
+
+  <div align="center">
+    <img src="https://github.com/user-attachments/assets/4c6222b8-02a4-4096-ad1b-d01de44b767e">
+  </div>
