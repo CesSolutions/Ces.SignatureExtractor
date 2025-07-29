@@ -10,6 +10,7 @@
 	<RepositoryUrl>https://github.com/CesSolutions/Ces.SignatureExtractor</RepositoryUrl>
 	<Description>Extract signature from scanned image</Description>
 	<Authors>Hadi.Mazareei</Authors>
+	<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
   <ItemGroup>
