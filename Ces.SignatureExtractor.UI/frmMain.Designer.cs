@@ -37,11 +37,11 @@
             btnClearResult = new Button();
             btnCustomColor = new Button();
             chkUseOriginalColor = new CheckBox();
-            tbBackgroundPrecision = new TrackBar();
+            tbPrecision = new TrackBar();
             lblBackgroundPrecision = new Label();
             ((System.ComponentModel.ISupportInitialize)pbOriginalImage).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbFinalImage).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)tbBackgroundPrecision).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)tbPrecision).BeginInit();
             SuspendLayout();
             // 
             // pbOriginalImage
@@ -141,17 +141,17 @@
             chkUseOriginalColor.UseVisualStyleBackColor = true;
             chkUseOriginalColor.CheckedChanged += chkUseOriginalColor_CheckedChanged;
             // 
-            // tbBackgroundPrecision
+            // tbPrecision
             // 
-            tbBackgroundPrecision.LargeChange = 1;
-            tbBackgroundPrecision.Location = new Point(373, 484);
-            tbBackgroundPrecision.Maximum = 255;
-            tbBackgroundPrecision.Name = "tbBackgroundPrecision";
-            tbBackgroundPrecision.Size = new Size(400, 45);
-            tbBackgroundPrecision.TabIndex = 9;
-            tbBackgroundPrecision.TickFrequency = 5;
-            tbBackgroundPrecision.Value = 200;
-            tbBackgroundPrecision.Scroll += tbBackgroundPrecision_Scroll;
+            tbPrecision.LargeChange = 1;
+            tbPrecision.Location = new Point(373, 484);
+            tbPrecision.Maximum = 255;
+            tbPrecision.Name = "tbPrecision";
+            tbPrecision.Size = new Size(400, 45);
+            tbPrecision.TabIndex = 9;
+            tbPrecision.TickFrequency = 5;
+            tbPrecision.Value = 200;
+            tbPrecision.Scroll += tbBackgroundPrecision_Scroll;
             // 
             // lblBackgroundPrecision
             // 
@@ -168,7 +168,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(784, 530);
             Controls.Add(lblBackgroundPrecision);
-            Controls.Add(tbBackgroundPrecision);
+            Controls.Add(tbPrecision);
             Controls.Add(chkUseOriginalColor);
             Controls.Add(btnCustomColor);
             Controls.Add(btnClearResult);
@@ -184,7 +184,7 @@
             Text = "Signature Extractor";
             ((System.ComponentModel.ISupportInitialize)pbOriginalImage).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbFinalImage).EndInit();
-            ((System.ComponentModel.ISupportInitialize)tbBackgroundPrecision).EndInit();
+            ((System.ComponentModel.ISupportInitialize)tbPrecision).EndInit();
             ResumeLayout(false);
             PerformLayout();
 
@@ -201,7 +201,7 @@
         private Button btnClearResult;
         private Button btnCustomColor;
         private CheckBox chkUseOriginalColor;
-        private TrackBar tbBackgroundPrecision;
+        private TrackBar tbPrecision;
         private Label lblBackgroundPrecision;
     }
 }

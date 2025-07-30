@@ -1,4 +1,6 @@
-﻿namespace Ces.SignatureExtractor.UI
+﻿using System.Diagnostics;
+
+namespace Ces.SignatureExtractor.UI
 {
     public partial class frmMain : Form
     {
@@ -37,7 +39,7 @@
                 _openFileDialog.FileName
                 , chkUseOriginalColor.Checked
                 , btnCustomColor.BackColor
-                , (byte)tbBackgroundPrecision.Value);
+                , (byte)tbPrecision.Value);
         }
 
         private void btnClearResult_Click(object sender, EventArgs e)
@@ -79,7 +81,7 @@
 
         private void tbBackgroundPrecision_Scroll(object sender, EventArgs e)
         {
-            lblBackgroundPrecision.Text = $"Precision: {tbBackgroundPrecision.Value}";
+            lblBackgroundPrecision.Text = $"Precision: {tbPrecision.Value}";
         }
     }
 }

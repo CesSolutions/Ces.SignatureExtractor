@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System.Diagnostics;
+using System.Drawing;
 using System.Drawing.Imaging;
 
 namespace Ces.SignatureExtractor
@@ -18,7 +19,7 @@ namespace Ces.SignatureExtractor
         /// <param name="precision">اگر پس زمینه تصویر کدر بود این مقدار را کاهش دهید</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
-        //public System.Drawing.Bitmap Extract(
+        //public System.Drawing.Bitmap Extract2(
         //    string imagePath,
         //    bool useOriginalColor = true,
         //    System.Drawing.Color? customColor = null,
@@ -191,7 +192,9 @@ namespace Ces.SignatureExtractor
                         float brightness = (0.299f * r + 0.587f * g + 0.114f * b) / 255f;
                         byte alpha = (byte)(255 * (1.0f - brightness));
 
-                        // Ignore pixels close to white
+                        // چشم پوشی از نقاط سفید و یا نواحی طوسی متمایل به سفید
+                        // البته این مقدار که برنامه باید ازآن به عنوان نقاط اطراف
+                        //خط امضا در نظر بگیرد به توسط پارامتر ورودی تابع تعیین می شود
                         if (r <= precision && g <= precision && b <= precision)
                         {
                             Color finalColor = useOriginalColor ? Color.FromArgb(r, g, b) : customColor.Value;
@@ -216,7 +219,7 @@ namespace Ces.SignatureExtractor
             imgOriginal.UnlockBits(bmpDataOriginal);
             imgSignature.UnlockBits(bmpDataSignature);
 
-            // Now crop to signature bounds
+            // برش و ناحیه امضا و حذف ناحیه شفاف خارج از محدوده امضا
             var bounds = GetNonTransparentBounds(imgSignature);
             if (bounds.Width <= 0 || bounds.Height <= 0)
                 return new Bitmap(1, 1); // Empty result if nothing found
@@ -248,7 +251,7 @@ namespace Ces.SignatureExtractor
             {
                 byte* ptr = (byte*)data.Scan0;
 
-                // Find top and bottom
+                // بدست آوردن مرز بالا و پایین ناحیه امضا                
                 for (int y = 0; y < height; y++)
                 {
                     byte* row = ptr + (y * stride);
@@ -257,14 +260,16 @@ namespace Ces.SignatureExtractor
                         byte alpha = row[x * 4 + 3];
                         if (alpha != 0)
                         {
-                            if (top == -1) top = y;
+                            if (top == -1)
+                                top = y;
+
                             bottom = y;
                             break;
                         }
                     }
                 }
 
-                // Find left and right
+                // بدست آوردن مرز چپ و راست ناحیه امضا                
                 for (int x = 0; x < width; x++)
                 {
                     for (int y = 0; y < height; y++)
@@ -273,7 +278,9 @@ namespace Ces.SignatureExtractor
                         byte alpha = row[x * 4 + 3];
                         if (alpha != 0)
                         {
-                            if (left == -1) left = x;
+                            if (left == -1)
+                                left = x;
+
                             right = x;
                             break;
                         }
